@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DiceRoller.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+            <Image
+                x:Name="Dado_1"
+                Source="dado_1.PNG"
+                HeightRequest="225"
+                Aspect="AspectFit"
+                SemanticProperties.Description="Dado para simbolizar" />
+
+            <!--Picker é uma lista que da varias opçoes para selecionar-->
+            <Picker
+                x:Name="SelecaoPicker"
+                Title="Selecione faceCima ou faceBaixo">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>FaceParaCima</x:String>
+                        <x:String>FaceParaBaixo</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <Button
+                x:Name="DiceButton"
+                Text="Girar o dado" 
+                SemanticProperties.Hint="Botão que vai gerar aleatoriamente o lado do dado"
+                Clicked="DiceButton_Clicked"
+                HorizontalOptions="Fill" />
+
+            <Label
+                 x:Name="StreakLabel"
+                 Text="Você ganhou 0 vezes em sequencia."
+                 HorizontalOptions="Center"/>
+
+            <Label
+                 x:Name="PlayerPointLabel"
+                 Text="Você ganhou 0 vezes ao todo."
+                 HorizontalOptions="Center"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
