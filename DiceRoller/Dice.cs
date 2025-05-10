@@ -12,54 +12,32 @@ namespace DiceRoller
         private int faceParaCima;
         private int faceParaBaixo;
 
-
         public string LadoSorteado { get => ladoSorteado; set => ladoSorteado = value; }
         public int FaceParaCima { get => faceParaCima; set => faceParaCima = value; }
         public int FaceParaBaixo { get => faceParaBaixo; set => faceParaBaixo = value; }
 
 
-
-        public Dice() 
-        { 
+        public Dice()
+        {
+           
         }
 
         public string Roller(int pickerSelect)
         {
             Random random = new Random();
-            FaceParaCima = random.Next(6);
+            FaceParaCima = random.Next(1, 7);
+            FaceParaBaixo = 7 - FaceParaCima;
 
-            if (FaceParaCima == 0)
+            if (FaceParaCima == pickerSelect)
             {
-                LadoSorteado = "dado1";
+                LadoSorteado = "Você acertou!"; 
             }
-            else if(FaceParaCima == 1)
+            else
             {
-                LadoSorteado = "dado2";
-            }
-            else if (FaceParaCima == 2)
-            {
-                LadoSorteado = "dado3";
-            }
-            else if (FaceParaCima == 3)
-            {
-                LadoSorteado = "dado4";
-            }
-            else if (FaceParaCima == 4)
-            {
-                LadoSorteado = "dado5";
-            }
-            else 
-            {
-                LadoSorteado = "dado6";
+                LadoSorteado = "Você errou!"; 
             }
 
-            return (LadoSorteado);
-
-
-
-
+            return LadoSorteado;
         }
-       
     }
 }
-
