@@ -8,25 +8,34 @@ namespace DiceRoller
 {
     public class Dice
     {
-        private string ladoSorteado;
-        private int faceParaCima;
-        private int faceParaBaixo;
 
-        public string LadoSorteado { get => ladoSorteado; set => ladoSorteado = value; }
-        public int FaceParaCima { get => faceParaCima; set => faceParaCima = value; }
-        public int FaceParaBaixo { get => faceParaBaixo; set => faceParaBaixo = value; }
+        //property
+        public string LadoSorteado;
+        public int FaceParaCima;
+        public int FaceParaBaixo;
+        public int QuantidadeDeFaces;
 
-
+        //add agora
         public Dice()
         {
-           
+            QuantidadeDeFaces = 6;
+        }
+        //add agora
+        public Dice(int faces)
+        {
+            QuantidadeDeFaces = faces;
         }
 
         public string Roller(int pickerSelect)
         {
             Random random = new Random();
-            FaceParaCima = random.Next(1, 7);
-            FaceParaBaixo = 7 - FaceParaCima;
+            // FaceParaCima = random.Next(1, 7);
+            FaceParaCima = random.Next(1, QuantidadeDeFaces + 1); //add agora
+
+            // FaceParaBaixo = 7 - FaceParaCima;
+            FaceParaBaixo = 1 + QuantidadeDeFaces - FaceParaCima;
+
+           
 
             if (FaceParaCima == pickerSelect)
             {
