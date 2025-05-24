@@ -1,4 +1,6 @@
-﻿namespace DiceRoller
+﻿using DiceRoller.Models;
+
+namespace DiceRoller
 
 {
     public partial class MainPage : ContentPage
@@ -45,6 +47,8 @@
 
             UpdateLabels(); // Atualiza os labels após cada jogada
         }
+
+
 
         private void UpdateLabels()
         {

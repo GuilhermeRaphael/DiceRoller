@@ -4,15 +4,23 @@
              x:Class="DiceRoller.MainPage">
 
     <ScrollView>
+
         <VerticalStackLayout
             Padding="30,0"
             Spacing="25">
-            <Image
-                x:Name="Dado_1"
-                Source="dado_1.PNG"
-                HeightRequest="225"
-                Aspect="AspectFit"
-                SemanticProperties.Description="Dado para simbolizar" />
+
+            <Label
+             Text = "Sorteio de dados"
+             FontSize = "40"
+             FontFamily="Arial"
+            HorizontalOptions = "Center" />
+            
+                <Image
+                     x:Name="Dado_1"
+                     Source="dado_1.PNG"
+                    HeightRequest="225"
+                    Aspect="AspectFit"
+                    SemanticProperties.Description="Dado para simbolizar" />
 
             <!--Picker é uma lista que da varias opçoes para selecionar-->
             <Picker

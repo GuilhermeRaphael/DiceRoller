@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DiceRoller
+namespace DiceRoller.Models
 {
     public class Dice
     {
@@ -35,15 +35,15 @@ namespace DiceRoller
             // FaceParaBaixo = 7 - FaceParaCima;
             FaceParaBaixo = 1 + QuantidadeDeFaces - FaceParaCima;
 
-           
+
 
             if (FaceParaCima == pickerSelect)
             {
-                LadoSorteado = "Você acertou!"; 
+                LadoSorteado = "Você acertou!";
             }
             else
             {
-                LadoSorteado = "Você errou!"; 
+                LadoSorteado = "Você errou!";
             }
 
             return LadoSorteado;

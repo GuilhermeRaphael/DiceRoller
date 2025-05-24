@@ -3,7 +3,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DiceRoller
+namespace DiceRoller.Models
 {
     public class Sequencia
     {
@@ -15,7 +15,7 @@ namespace DiceRoller
         public int Streak { get => streak; set => streak = value; }
 
 
-        public Boolean CheckWinner(int LadoSorteado, int ladoEscolhido)
+        public bool CheckWinner(int LadoSorteado, int ladoEscolhido)
         {
             if (LadoSorteado == ladoEscolhido)
             {
