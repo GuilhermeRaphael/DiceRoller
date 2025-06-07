@@ -3,17 +3,42 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DiceRoller.Views.GameView"
              Title="GameView">
-    <VerticalStackLayout>
-     
-        <Image Source="{Binding DiceImage}" />
+    <ScrollView>
+    
+    <VerticalStackLayout
+        Padding="30,0"
+        Spacing="25">
+
+        <Label  
+            Text="{Binding App}"
+            FontSize ="40"
+            FontFamily="Arial"
+            HorizontalOptions="Center"/>
+
+        <Image Source="{Binding DiceImage}" 
+       HeightRequest="225"
+       Aspect="AspectFit"/>
+
+            <Picker 
+            Title ="{Binding EscolhaPicker}">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>1</x:String>
+                        <x:String>2</x:String>
+                        <x:String>3</x:String>
+                        <x:String>4</x:String>
+                        <x:String>5</x:String>
+                        <x:String>6</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
         <Button
-            Text="Clique pra sortear"/>
+            Text="Sortear"
+            Command="{Binding NomeDoComando}"/>
 
-        <Label
-            Text="{Binding NomeUsuario}"/>
-
-        
 
 
     </VerticalStackLayout>
+   </ScrollView>
 </ContentPage>

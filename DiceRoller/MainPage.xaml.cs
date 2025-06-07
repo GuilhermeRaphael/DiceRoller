@@ -12,7 +12,7 @@ namespace DiceRoller
         public MainPage()
         {
             InitializeComponent();
-            UpdateLabels(); 
+            
         }
 
 
@@ -27,33 +27,34 @@ namespace DiceRoller
                 return;
             }
 
+            /*
+                        Dice dado = new Dice();
+                        int numeroEscolhido = SelecaoPicker.SelectedIndex + 1;
+                        dado.Sortear(numeroEscolhido);
 
-            Dice dado = new Dice();
-            int numeroEscolhido = SelecaoPicker.SelectedIndex + 1;
-            dado.Roller(numeroEscolhido);
+                        Dado_1.Source = "dado_" + dado.FaceParaCima + ".PNG";
 
-            Dado_1.Source = "dado_" + dado.FaceParaCima + ".PNG";
+                        totalLadoOposto += dado.FaceParaBaixo;
 
-            totalLadoOposto += dado.FaceParaBaixo;
+                        if (jogo.CheckWinner(dado.FaceParaCima, numeroEscolhido)) 
+                        {
+                            DisplayAlert("Parabéns", "Você venceu!", "Ok");
+                        }
+                        else
+                        {
+                            DisplayAlert("Se ferrou", "Você perdeu!", "Ok");
+                        }
 
-            if (jogo.CheckWinner(dado.FaceParaCima, numeroEscolhido)) 
-            {
-                DisplayAlert("Parabéns", "Você venceu!", "Ok");
-            }
-            else
-            {
-                DisplayAlert("Se ferrou", "Você perdeu!", "Ok");
-            }
-
-            UpdateLabels(); // Atualiza os labels após cada jogada
-        }
+                        UpdateLabels(); // Atualiza os labels após cada jogada
+                    }
 
 
 
-        private void UpdateLabels()
-        {
-            PlayerPointLabel.Text = $"Você ganhou {jogo.PlayerPoint} vezes ao todo.";
-            StreakLabel.Text = $"Você ganhou {jogo.Streak} vezes em sequencia.";
+                    private void UpdateLabels()
+                    {
+                        PlayerPointLabel.Text = $"Você ganhou {jogo.PlayerPoint} vezes ao todo.";
+                        StreakLabel.Text = $"Você ganhou {jogo.Streak} vezes em sequencia.";
+               */
         }
     }
 
