@@ -19,26 +19,42 @@
        HeightRequest="225"
        Aspect="AspectFit"/>
 
-            <Picker 
-            Title ="{Binding EscolhaPicker}">
+            <Picker SelectedIndex="{Binding SelectedValue}">
                 <Picker.ItemsSource>
-                    <x:Array Type="{x:Type x:String}">
-                        <x:String>1</x:String>
-                        <x:String>2</x:String>
-                        <x:String>3</x:String>
-                        <x:String>4</x:String>
-                        <x:String>5</x:String>
-                        <x:String>6</x:String>
+                    <x:Array Type="{x:Type x:Int32}">
+                        <x:Int32>1</x:Int32>
+                        <x:Int32>2</x:Int32>
+                        <x:Int32>3</x:Int32>
+                        <x:Int32>4</x:Int32>
+                        <x:Int32>5</x:Int32>
+                        <x:Int32>6</x:Int32>
                     </x:Array>
                 </Picker.ItemsSource>
             </Picker>
 
-        <Button
+            <Label Text="{Binding Resultado}" 
+            FontSize="Large" 
+            HorizontalOptions="Center" 
+            VerticalOptions="CenterAndExpand" />
+
+            <Button
             Text="Sortear"
-            Command="{Binding NomeDoComando}"/>
+            Command="{Binding JogarCommand}"/>
+
+            <Label Text="{Binding PlayerPoint, StringFormat='Vitórias Totais: {0}'}"
+               FontSize="Medium"
+               HorizontalOptions="Center" />
+
+            <Label Text="{Binding Streak, StringFormat='Sequência Atual: {0}'}"
+               FontSize="Medium"
+               HorizontalOptions="Center" />
+
+            <Label Text="{Binding TotalOppositeSide, StringFormat='Soma Lados Opostos: {0}'}"
+               FontSize="Small"
+               HorizontalOptions="Center" />
 
 
 
-    </VerticalStackLayout>
+        </VerticalStackLayout>
    </ScrollView>
 </ContentPage>

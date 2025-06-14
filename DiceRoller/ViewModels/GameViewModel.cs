@@ -26,27 +26,52 @@ namespace DiceRoller.ViewModels
         [ObservableProperty]
         private string escolhaPicker;
 
-        
+        [ObservableProperty]
+        private int playerPoint;
 
-        
+        [ObservableProperty]
+        private int streak;
 
-       public GameViewModel() {
+        [ObservableProperty]
+        private int totalOppositeSide;
+
+        [ObservableProperty]
+        private int maxAttempts = 25;
+
+        private Sequencia jogo;
+
+
+
+
+        public GameViewModel()
+        {
 
             DiceImage = "dado_1.PNG";
             App = "Sorteio de dados";
-            JogarComamand = new Command(Jogar);
+            JogarCommand = new Command(Jogar);
             escolhaPicker = "Selecione o valor do dado";
-            
+
+            jogo = new Sequencia();
         }
 
-        public ICommand JogarComamand { get; private set; }
+        public ICommand JogarCommand { get; private set; }
 
         public void Jogar()
         {
+            if (totalOppositeSide >= maxAttempts)
+            {
+                Resultado = "Atenção: Tentativas maximas utilizadas";
+                return;
+            }
             //Sortear um dado 
             Dice dice = new Dice();
             dice.Sortear();
-           // DiceImage.Source = "dado_" + dice.FaceParaCima + ".PNG";
+            // DiceImage.Source = "dado_" + dice.FaceParaCima + ".PNG";
+
+            DiceImage = "dado_" + dice.FaceParaCima + ".PNG";
+            TotalOppositeSide += dice.FaceParaBaixo;
+
+            /*
             if (dice.FaceParaCima == SelectedValue)
             {
                 Resultado = "Vitoria!!!!";
@@ -55,10 +80,27 @@ namespace DiceRoller.ViewModels
             {
                 Resultado = "Derrota!!";
             }
-            //Verificar qual face esta selecionada 
-            //Verifica se o usuario escolheu certo
-            //Exibir uma mensagem na tela
+          */
+
+            int numeroEscolhidoReal = SelectedValue + 1;
+
+
+            if (jogo.CheckWinner(dice.FaceParaCima, numeroEscolhidoReal))
+            {
+                Resultado = "Parabéns: Você venceu!";
+            }
+            else
+            {
+                Resultado = "Que pena: Você perdeu!";
+            }
+
+
+            PlayerPoint = jogo.PlayerPoint;
+            Streak = jogo.Streak;
+
+
         }
+
 
 
     }
